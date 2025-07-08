@@ -1,7 +1,8 @@
 package service.internal;
 
-import model.PaperBook;
+import model.DemoBook;
 import model.ElectronicBook;
+import model.PaperBook;
 import service.external.MailService;
 import service.external.ShippingService;
 
@@ -16,7 +17,6 @@ public class PurchasingService {
 
     // Private constructor to prevent instantiation
     private PurchasingService() {
-        this.inventoryService = InventoryService.getInstance();
     }
 
     // Thread-safe getInstance method
@@ -70,6 +70,10 @@ public class PurchasingService {
         }
 
         return book.getPrice();
+    }
+
+    public void buyDemoBook(DemoBook book) {
+        throw new Error("Demo books can't be bought");
     }
 
     public InventoryService getInventoryService() {
